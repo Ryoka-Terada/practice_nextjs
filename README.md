@@ -1,16 +1,25 @@
 # このプロジェクトについて
-Next.jsをメインに使っています。APIとしてJSON Serverを動かします。
+Next.jsをメインに使っています。APIモックとしてJSON Serverを動かします。
+
+nextjs-blog/
+  │
+  ├api/jsonServer/
+  │  └db.json
+  │
+  └front/
+
+プロジェクトを起動するには、Next.jsとJSON Serverを別々に起動する必要がある。
 
 # 動かし方
 コマンドツールで以下(初回のみ)
 
 $ git clone https://github.com/Ryoka-Terada/practice_nextjs.git
 
-プロジェクトルートで以下
+nextjs-blog/front/で以下
 
 $ npm run dev
 
-nextjs-blog/jsonServer に移動して以下
+nextjs-blog/api/jsonServer/ に移動して以下
 
 $ npm bin
 

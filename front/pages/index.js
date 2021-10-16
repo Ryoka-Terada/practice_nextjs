@@ -21,7 +21,7 @@ export async function getData(){
   const data1 = await fetch('http://localhost:3100/articles/', {method: 'GET'});
   // .then(res => res.json()).then(console.log);
   const data2 = await data1.json();
-  const data3 = data2.map((data2, index)=>{return data2.title});
+  const data3 = data2.map((index)=>{return index.title});
   console.log(data3);
   return data3;
 }
@@ -43,7 +43,7 @@ export async function postData(apiName){
 
 export default function Home({ allPostsData }) {
   const [count, setCount] = useState(0);
-  const [book, setBook] = useState();
+  const [book, setBook] = useState([]);
   const [query, setQuery] = useState('redux');
   const [dummy, setDummy] = useState('');
   // useEffectは一番最初しか動かない？
@@ -52,9 +52,8 @@ export default function Home({ allPostsData }) {
       console.log("useEffect起動");
       const data1 = await fetch('http://localhost:3100/articles/', {method: 'GET'});
       const data2 = await data1.json();
-      const data3 = data2.map((data2, index)=>{return data2.title});
-      console.log(data3);
-      setBook(data3);
+      setBook(data2);
+      console.log(data2);
     })()
   },[]) // 第二引数に[]を渡さないとコンポーネント更新ごとに(自動バッチがあるため毎秒)データを取得しに行ってしまうらしい
   return (
@@ -67,7 +66,13 @@ export default function Home({ allPostsData }) {
       <button onClick={() => setCount(count + 1)}>
         Click me{count}
       </button>
-      <p>{book}</p>
+      {book.map(({ id, title, author }) => (
+        <dev>
+          <p>
+            {id} <b>{title}</b> {author}
+          </p>
+        </dev>
+      ))}
       <input
         type="text"
         value={query}
