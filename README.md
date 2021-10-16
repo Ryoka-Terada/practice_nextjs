@@ -1,12 +1,10 @@
 # このプロジェクトについて
 Next.jsをメインに使っています。APIモックとしてJSON Serverを動かします。
 
-nextjs-blog/
-  │
-  ├api/jsonServer/
-  │  └db.json
-  │
-  └front/
+nextjs-blog/<br>
+  ├api/jsonServer/<br>
+  │  └db.json<br>
+  └front/<br>
 
 プロジェクトを起動するには、Next.jsとJSON Serverを別々に起動する必要がある。
 
