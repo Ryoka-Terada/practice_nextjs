@@ -48,12 +48,12 @@ export default function Home({ allPostsData }) {
   const [dummy, setDummy] = useState('');
   // useEffectは一番最初しか動かない？
   useEffect(()=>{
-    (async () => {
-      console.log("useEffect起動");
-      const data1 = await fetch('http://localhost:3100/articles/', {method: 'GET'});
-      const data2 = await data1.json();
-      setBook(data2);
-      console.log(data2);
+    (async () => {      
+      console.log('api/book/ 呼び出し');
+      const bookData = await fetch('http://localhost:3000/api/book');
+      const books = await bookData.json();
+      console.log(books);
+      setBook(books);
     })()
   },[]) // 第二引数に[]を渡さないとコンポーネント更新ごとに(自動バッチがあるため毎秒)データを取得しに行ってしまうらしい
   return (
