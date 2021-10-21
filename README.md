@@ -17,6 +17,14 @@ nextjs-blog/front/で以下
 
 $ npm run dev
 
+>'next' は、内部コマンドまたは外部コマンド、操作可能なプログラムまたはバッチ ファイルとして認識されていません。
+
+npm run devでこれが表示されたら以下
+
+$ npm install
+
+(理由はgitignoreにnode_moduleが入っているため上記エラーが出る。npm installで必要なものを全てインストールしてくれる？)
+
 nextjs-blog/api/jsonServer/ に移動して以下
 
 $ npm bin
